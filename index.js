@@ -24,7 +24,6 @@ const connectDB = async () => {
     }
 };
 
-connectDB();
 
 // User Schema & Model
 const userSchema = new mongoose.Schema({
@@ -43,6 +42,8 @@ const hashPassword = async (password) => {
 
 // Signup Route
 app.post('/api/signup', async (req, res) => {
+    await connectDB();
+
     const { name, email, password } = req.body;
     try {
         let user = await User.findOne({ email });
@@ -61,6 +62,8 @@ app.post('/api/signup', async (req, res) => {
 
 // Login Route
 app.post('/api/login', async (req, res) => {
+    await connectDB();
+
     const { email, password } = req.body;
     try {
         const user = await User.findOne({ email });
@@ -75,6 +78,8 @@ app.post('/api/login', async (req, res) => {
     } catch (err) {
         res.status(500).json({ message: 'Server error' });
     }
+    // await mongoose.disconnect();
+
 });
 
 // Start the server
