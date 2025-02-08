@@ -60,6 +60,9 @@ app.post('/api/signup', async (req, res) => {
     }
 });
 
+app.post('/', async (req, res) => {
+    res.send({ message: "this is working" });
+})
 // Login Route
 app.post('/api/login', async (req, res) => {
     await connectDB();
