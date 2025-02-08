@@ -60,7 +60,7 @@ app.post('/api/signup', async (req, res) => {
     }
 });
 
-app.post('/', async (req, res) => {
+app.get('/', async (req, res) => {
     res.send({ message: "this is working" });
 })
 // Login Route
