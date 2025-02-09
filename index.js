@@ -4,12 +4,14 @@ const mongoose = require('mongoose');
 const bcrypt = require('bcryptjs');
 const crypto = require('crypto');
 const jwt = require('jsonwebtoken');
+const cors = require('cors');
 require('dotenv').config();
 
 // Initialize Express app
-const app = express();
-app.use(express.json());
 
+const app = express();
+app.use(cors({ origin: true }));
+app.use(express.json());
 // MongoDB Connection
 const connectDB = async () => {
     try {
