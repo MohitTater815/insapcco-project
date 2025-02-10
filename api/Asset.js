@@ -6,8 +6,8 @@ const connectDB = require("../utils/mongoDB");
 router.post('/add', async (req, res) => {
     try {
         await connectDB.open();
-        const { name, category, value, owner } = req.body;
-        const newAsset = new Asset({ name, category, value, owner });
+        const { name, category, value, ownerId } = req.body;
+        const newAsset = new Asset({ name, category, value, owner: ownerId });
         await newAsset.save();
         res.status(201).json(newAsset);
     } catch (error) {
