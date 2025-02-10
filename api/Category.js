@@ -5,13 +5,13 @@ const connectDB = require("../utils/mongoDB");
 
 router.post('/add', async (req, res) => {
     try {
-        const { name, owner } = req.body;
+        const { name, OwnerId } = req.body;
         await connectDB.open();
-        const existingCategory = await Category.findOne({ name, owner });
+        const existingCategory = await Category.findOne({ name, owner: OwnerId });
         if (existingCategory) {
             return res.status(400).json({ message: 'Category already exists for this owner' });
         }
-        const newCategory = new Category({ name, owner });
+        const newCategory = new Category({ name, owner: OwnerId });
         await newCategory.save();
         res.status(201).json(newCategory);
     } catch (error) {
