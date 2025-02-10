@@ -44,8 +44,7 @@ router.post('/signup', async (req, res) => {
         if (user) return res.status(400).json({ message: 'User already exists' });
 
         const hashedPassword = await hashPassword(password);
-
-        user = new User({ name, email, password: hashedPassword });
+        user = new users({ name, email, password: hashedPassword });
         await user.save();
 
         res.status(201).json({ message: 'User registered successfully' });
