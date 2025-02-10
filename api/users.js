@@ -30,7 +30,7 @@ router.post('/login', async (req, res) => {
         console.log(err)
         res.status(500).json({ message: 'Server error', err });
     } finally {
-        await connectDB.close();
+        // await connectDB.close();
     }
 
 
@@ -52,7 +52,7 @@ router.post('/signup', async (req, res) => {
     } catch (err) {
         res.status(500).json({ message: 'Server error', err });
     } finally {
-        await connectDB.close();
+        // await connectDB.close();
     }
 });
 

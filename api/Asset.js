@@ -13,7 +13,7 @@ router.post('/add', async (req, res) => {
     } catch (error) {
         res.status(500).json({ message: 'Server Error', error });
     } finally {
-        await connectDB.close();
+        // await connectDB.close();
     }
 });
 
@@ -31,7 +31,7 @@ router.post('/remove/:id', async (req, res) => {
     } catch (error) {
         res.status(500).json({ message: 'Server Error', error });
     } finally {
-        await connectDB.close();
+        // await connectDB.close();
     }
 });
 
@@ -48,7 +48,7 @@ router.post('/edit/:id', async (req, res) => {
     } catch (error) {
         res.status(500).json({ message: 'Server Error', error });
     } finally {
-        await connectDB.close();
+        // await connectDB.close();
     }
 });
 
@@ -62,7 +62,7 @@ router.post('/all/:ownerId', async (req, res) => {
     } catch (error) {
         res.status(500).json({ message: 'Server Error', error });
     } finally {
-        await connectDB.close();
+        // await connectDB.close();
     }
 });
 
@@ -87,7 +87,7 @@ router.post('/dashboard/:ownerId', async (req, res) => {
     } catch (error) {
         res.status(500).json({ message: 'Server Error', error });
     } finally {
-        await connectDB.close();
+        // await connectDB.close();
     }
 });
 module.exports = router;
